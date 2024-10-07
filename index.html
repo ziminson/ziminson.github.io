@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnalogKid Guitars</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .links a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 18px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .links a:hover {
+            border-color: #333;
+        }
+
+        .language-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .language-switch button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .language-switch button:hover {
+            color: #000;
+        }
+    </style>
+    <script>
+        function switchLanguage(lang) {
+            const elementsRu = document.querySelectorAll('.lang-ru');
+            const elementsEn = document.querySelectorAll('.lang-en');
+
+            if (lang === 'ru') {
+                elementsRu.forEach(el => el.style.display = 'block');
+                elementsEn.forEach(el => el.style.display = 'none');
+            } else {
+                elementsRu.forEach(el => el.style.display = 'none');
+                elementsEn.forEach(el => el.style.display = 'block');
+            }
+        }
+
+        window.onload = function() {
+            switchLanguage('ru');
+        }
+    </script>
+</head>
+<body>
+    <div class="language-switch">
+        <button onclick="switchLanguage('ru')">🇷🇺</button> / 
+        <button onclick="switchLanguage('en')">🇬🇧</button>
+    </div>
+
+    <div class="container">
+        <!-- Русская версия -->
+        <div class="lang-ru">
+            <h1>Привет, меня зовут Антон</h1>
+            <p>Я делаю копии гитары Red Special с 2016 года</p>
+            <p> </p>
+            <br>
+            <img src="pic/small2.jpg" width="60%">
+            <p> </p>
+            <br>
+            <p>Примеры моих работ - <a href="gallery.html">в галерее</a></p>
+            <p>Можете найти, подписаться и написать мне в разных соцсетях (я везде <b>analogkidguitars</b>)</p>
+            <p>Например, <a href="https://vk.com/analogkidguitars" target="_blank">Вконтакте</a> или <a href="https://t.me/analogkidguitars" target="_blank">Телеграме</a></p>
+            <p>Там больше фото и видео</p>
+        </div>
+
+        <!-- Английская версия -->
+        <div class="lang-en" style="display: none;">
+            <h1>Hello, my name is Anton</h1>
+            <p>I've been making Red Special replicas since 2016</p>
+            <p> </p>
+            <br>
+            <img src="pic/small2.jpg" width="60%">
+            <p> </p>
+            <br>
+            <p>Examples of my work - <a href="gallery.html">in the gallery</a></p>
+            <p>You can find, follow, and message me on different social networks (I'm <b>analogkidguitars</b> everywhere)</p>
+            <p>For example, <a href="https://vk.com/analogkidguitars" target="_blank">VK</a> or <a href="https://t.me/analogkidguitars" target="_blank">Telegram</a></p>
+            <p>There you'll find more photos and videos</p>
+        </div>
+    </div>
+</body>
+</html>

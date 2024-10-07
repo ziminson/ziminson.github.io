@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #333;
+            position: relative;
+            padding-top: 20px;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 18px;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: #000;
+        }
+
+        .video-container {
+            width: 80%;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 450px;
+        }
+
+        .carousel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            max-width: 800px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel img {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+
+        .buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            font-size: 48px;
+            cursor: pointer;
+            color: #fff;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .fullscreen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .fullscreen img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .fullscreen button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: transparent;
+            border: none;
+            font-size: 36px;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-button"> <<< </a>
+
+    <div class="video-container">
+        <!-- Вставьте код iframe для видео с YouTube -->
+        <iframe src="https://www.youtube.com/embed/O4BmRUo8vc0?si=cv06Ks4Ga23N85Rz" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="carousel">
+        <div class="buttons">
+            <button class="prev" onclick="prevImage()">&#10094;</button>
+            <button class="next" onclick="nextImage()">&#10095;</button>
+        </div>
+        <img id="carouselImage" src="pic/image1.jpg" alt="Гитара" onclick="openFullscreen()">
+    </div>
+
+    <script>
+        const images = ["pic/image1.jpg", "pic/image2.jpg", "pic/image3.jpg", "pic/image4.jpg", "pic/image5.jpg", "pic/image6.jpg", "pic/image7.jpg", "pic/image8.jpg", "pic/image9.jpg", "pic/image10.jpg", "pic/image11.jpg", "pic/image12.jpg", "pic/image13.jpg", "pic/image14.jpg", "pic/image15.jpg", "pic/image16.jpg", "pic/image17.jpg"];  // Замени на реальные пути к изображениям
+        let currentImageIndex = 0;
+
+        function showImage(index) {
+            const carouselImage = document.getElementById('carouselImage');
+            carouselImage.src = images[index];
+            const fullscreenImage = document.getElementById('fullscreenImage');
+            fullscreenImage.src = images[index];
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex > 0) ? currentImageIndex - 1 : images.length - 1;
+            showImage(currentImageIndex);
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex < images.length - 1) ? currentImageIndex + 1 : 0;
+            showImage(currentImageIndex);
+        }
+
+    </script>
+
+</body>
+</html>
